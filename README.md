@@ -24,27 +24,28 @@ If you want to build **XKUPM**, You have to make sure that `GCC(GNU Compiler Col
 ## Debian series
 1. Update **apt** Repository indexes
 <br>
-`apt update`
+apt update
 <br>
-3. Install **build-essential**
+2. Install **build-essential**
 <br>
-`sudo apt install build-essential`
+sudo apt install build-essential
 <br>
-4. Install **cmake**
+3. Install **cmake**
 <br>
-`sudo apt install cmake`
+sudo apt install cmake
+
 ## Arch series
 1. Update Local package database
 <br>
-`sudo pacman -Sy`
+sudo pacman -Sy
 <br>
-3. Install **base-devel**
+2. Install **base-devel**
 <br>
-`sudo pacman -S base-devel`
+sudo pacman -S base-devel
 <br>
-5. Install **cmake**
+3. Install **cmake**
 <br>
-`sudo pacman -S cmake`
+sudo pacman -S cmake
 
 # How to build
 --------------
