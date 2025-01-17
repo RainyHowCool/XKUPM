@@ -118,9 +118,9 @@ void installPackage(char* packageName){
         exit(-1);
     }
     // 5. Register Remove Information
-    int copyCommandLength = strlen("cp ./files/remove.sh ~/.xkupm/removes/.sh"); + strlen(packageName) + 1;
+    int copyCommandLength = strlen("sudo cp ./files/remove.sh ~/.xkupm/removes/.sh"); + strlen(packageName) + 1;
     char* copyCommand = (char*) malloc(copyCommandLength);
-    sprintf(copyCommand, "cp ./files/remove.sh ~/.xkupm/removes/%s.sh", packageName);
+    sprintf(copyCommand, "sudo cp ./files/remove.sh ~/.xkupm/removes/%s.sh", packageName);
     system(copyCommand); // copy remove scripts to removes directory
     // 6. Clean
     chdir("/");
@@ -129,18 +129,18 @@ void installPackage(char* packageName){
 }
 
 void removePackage(char* packageName){
-    int removeScriptFullNameLength = strlen("~/.xkupm/removes/.sh") + strlen(packageName) + 1;
+    int removeScriptFullNameLength = strlen(expanduser("~/.xkupm/removes/.sh")) + strlen(packageName) + 1;
     char* removeScriptFullName = (char*) malloc(removeScriptFullNameLength);
-    sprintf(removeScriptFullName, "~/.xkupm/removes/%s.sh", packageName);
+    sprintf(removeScriptFullName, expanduser("~/.xkupm/removes/%s.sh"), packageName);
 
     chmod(expanduser(removeScriptFullName), 777); // Mode 777
 
     int removeCommandLength = strlen("sudo ") + strlen(removeScriptFullName) + 1;
     char* removeCommand = (char*) malloc(removeCommandLength);
-    sprintf(removeCommand, "sudo %s", removeCommand);
+    sprintf(removeCommand, "sudo %s", removeScriptFullName);
 
     int errorLevel = system(removeCommand); // Execute Command to remove
-    put << "Remove finished!" << endl;
+    pinfo << "Remove finished!" << endl;
 }
 
 int main(int argc, char* argv[]){ // Entry point
