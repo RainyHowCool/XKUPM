@@ -33,7 +33,8 @@ int extractArchiveLinux(xkstring fileName, xkstring extractPath)
 {
     int commandLength = strlen("tar -xzf  -C ") + fileName.length() + extractPath.length(); // Get string length for alloc
     char* command = (char*)malloc(commandLength); // Alloc Memory space
-
+    sprintf(command, "tar -xzf %s -C %s", fileName, extractPath);
+    //execute
     int errorLevel = system(command);
 
     if(errorLevel != 0){ // Whoa! Extract error!
