@@ -29,3 +29,4 @@
 
 #define REPO_EXTS "xkupma"
 char* getDownloadSource(); // Get Download Repository URL
+char* expanduser(const char* path);
