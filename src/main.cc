@@ -72,15 +72,16 @@ char* downloadPackage(char* packageName){
     char directoryTemplate[] = "/tmp/upmDirXXXXXX";
     char *tempDirectoryName = mkdtemp(directoryTemplate);
     // 3. Download Package
-    char *fileFullName = (char*)malloc(strlen(tempDirectoryName) + strlen("/binary.xpz") + 1);
-    int downloadStatus = downloadFile(url, fileFullName);
+    char *fileFullName = (char*)malloc(31); // strlen(tempDirectoryName) + strlen("/binary.xpz") + 1 always is 31
+    sprintf(fileFullName, "%s/binary.xpz", tempDirectoryName);
+    int downloadStatus = downloadFile(toStr(url), toStr(fileFullName)); // I hate xkstring!!!!!!!!
     // 4. Check are done
     if(downloadStatus == -1){
         perr << "Cannot download package. Installion stopped with code -1." << endl;
         rmdir(tempDirectoryName); // Clean temp directory
         exit(-1);
     }
-    return packageName;
+    return strdup(tempDirectoryName);
 }
 
 void installPackage(char* packageName){
