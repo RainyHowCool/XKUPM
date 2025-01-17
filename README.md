@@ -22,7 +22,7 @@ NOTICE:
 If you want to build **XKUPM**, You have to make sure that `GCC(GNU Compiler Collection)/G++`,`GNU Make` and `CMake` is installed correctly.
 <br>
 ## Debian series
-1. Update **apt** Repository indexes
+First, Update **apt** Repository indexes
 <br>
 apt update
 <br>
@@ -35,7 +35,7 @@ sudo apt install build-essential
 sudo apt install cmake
 
 ## Arch series
-1. Update Local package database
+First, Update Local package database
 <br>
 sudo pacman -Sy
 <br>
