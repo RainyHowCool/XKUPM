@@ -4,7 +4,7 @@
 
 # Open-Source LICENSE
 ---------------------
-**XKUPM** uses `Apache 2.0 LICENSE`.
+**XKUPM** use `Apache 2.0 LICENSE`.
 NOTICE:
 >   Copyright 2025 xiaokuai(@小块SIXTEEN)
 >
@@ -20,25 +20,69 @@ NOTICE:
 >   See the License for the specific language governing permissions and
 >   limitations under the License.
 
+# Ready to build(IMPORTANT!)
+----------------------------
+If you want to build **XKUPM**, You have to make sure that `GCC(GNU Compiler Collection)/G++`,`GNU Make` and `CMake` is installed correctly.
+<br>
+## Debian series
+1. Update `apt` Repository indexes
+<br>
+    `sudo apt update`
+<br>
+3. Install `build-essential`
+<br>
+    `sudo apt install build-essential`
+<br>
+4. Install `cmake`
+<br>
+    `sudo apt install cmake`
+## Arch series
+1. Update Local package database
+<br>
+    `sudo pacman -Sy`
+<br>
+3. Install `base-devel`
+<br>
+    `sudo pacman -S base-devel`
+<br>
+5. Install `cmake`
+<br>
+    `sudo pacman -S cmake`
+
 # How to build
 --------------
-If you want to build **XKUPM**, you can through `build.sh`(Recommend)
+## build.sh
+If you want to build **XKUPM**, you can through `build.sh`(Recommend) 
+<br>
 `chmod +777 .\build.sh`
+<br>
 `.\build.sh`
+<br><br>
+## CMake & GNU Make
 You not only can build it through `build.sh`, you also can build it through *CMake* and *Makefile*
-`cmake .`
+<br>
+`cmake
+<br>.`
 `make`
 # Run it
 --------
 `chmod +777 .\xkupm`
+<br>
 `.\xkupm help`
 # Usage
 -------
 Usage: xkupm [options] command [packages]
+<br>
 Command Options:
+<br>
     install [source/binary] - Install package.
+<br>
     update - Update Indexes & Packages.
-    find   - Find packages in indexes
+<br>
+    find   - Find package in indexes
+<br>
 # Support us
 ------------
-You can pull `Pull Request` or feedback through `GitHub Issues` or send e-Mail to `rainyhowcool@outlook.com`
+You can give feedback via `GitHub Issues` or send an email to **rainyhowcool@outlook.com**.
+<br>
+If you want to add a new feature, please submit a `Pull requests`.
