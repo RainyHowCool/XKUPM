@@ -5,7 +5,7 @@
  *   /  \  | . \  | |_| | |  __/  | |  | |
  *  /_/\_\ |_|\_\  \___/  |_|     |_|  |_|
  *  
- *  XKUPM VERSION 1.00
+ *  XKUPM VERSION 1.00 BUILD 20250107
  *  Utils Header File
  *  2025 @小块SIXTEEN
  *  Copyright 2025 xiaokuai(@小块SIXTEEN)
