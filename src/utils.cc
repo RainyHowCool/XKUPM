@@ -50,13 +50,17 @@ char* expanduser(const char* path) { //AIGC, Rewrite it in future.
     return expanded_path;
 }
 
-xkstring getDownloadSource(){ // Get Download Repository URL
+char* getDownloadSource(){ // Get Download Repository URL
     FILE* fp = fopen(expanduser("~/.xkupm/source.ini"),"r"); // Create File Pointer
     if(fp == NULL){ // If open file failed
         pmio::perr << "Cannot open configation file!" << pmio::endl;  // Output error message
         exit(-1); // Exit with code -1
     }
     char buffer[256];
-    buffer[fread(buffer, 1, sizeof(buffer) - 1, fp)] = '\0';  // String ended must is \0!
-    return toStr(buffer);
+    int fileWriteIndex = fread(buffer, 1, sizeof(buffer) - 1, fp);
+    buffer[fileWriteIndex] = '\0';  // String ended must is \0!
+    for(int index = 0; index < fileWriteIndex; index++){
+        if(buffer[index] == '\n') buffer[index] = '\0'; // Emm....I removed all '\n' because it is really in buffer
+    }
+    return strdup(buffer);
 }
