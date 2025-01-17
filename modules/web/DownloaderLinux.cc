@@ -31,7 +31,7 @@
 int downloadFileLinux(xkstring url, xkstring path){
     size_t commandLength = strlen("wget -O \"\" \"\"  > /dev/null 2>&1") + strlen(path.cstr()) + strlen(url.cstr()) + 1; // get url length
     char* command = (char*) malloc(commandLength * sizeof(char)); // create varible and malloc memory space
-    sprintf(command, "wget -O \"%s\" \"%s\" %s > /dev/null 2>&1",path.cstr(),url.cstr()); // Make Command
+    sprintf(command, "wget -O \"%s\" \"%s\" > /dev/null 2>&1",path.cstr(),url.cstr()); // Make Command
     system(command); // Download it based wget
     if(!access(path.cstr(),F_OK)){ // File not found
         pmio::perr << "Cannot download file " << url << ".Press any key to continue." << pmio::endl; // output error message
