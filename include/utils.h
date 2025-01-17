@@ -28,4 +28,4 @@
 #endif
 
 #define REPO_EXTS "xkupma"
-xkstring getDownloadSource(); // Get Download Repository URL
+char* getDownloadSource(); // Get Download Repository URL
