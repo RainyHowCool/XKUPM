@@ -25,7 +25,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 #include <unistd.h>
+#include <errno.h>
 #include "pmio.h"
 
 int downloadFileLinux(xkstring url, xkstring path){
@@ -33,8 +35,9 @@ int downloadFileLinux(xkstring url, xkstring path){
     char* command = (char*) malloc(commandLength * sizeof(char)); // create varible and malloc memory space
     sprintf(command, "wget -O \"%s\" \"%s\" > /dev/null 2>&1",path.cstr(),url.cstr()); // Make Command
     system(command); // Download it based wget
-    if(!access(path.cstr(),F_OK)){ // File not found
-        pmio::perr << "Cannot download file " << url << ".Press any key to continue." << pmio::endl; // output error message
+    struct stat buffer; // Just a buffer
+    if(stat(path.cstr(), &buffer) == -1 && errno == ENOENT){ // File not found,FIXED
+        pmio::perr << "Cannot access file " << path.cstr() << ".Press any key to continue." << pmio::endl; // output error message
         getchar(); // Pause
         return -1; // return code -1
     }
