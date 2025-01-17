@@ -27,7 +27,7 @@
 using pmio::perr;
 using pmio::endl;
 
-int extractArchive(xkstring fileName, xkstring extractPath)
+int extractArchiveLinux(xkstring fileName, xkstring extractPath)
 {
     int commandLength = strlen("tar -xzf  -C ") + fileName.length() + extractPath.length(); // Get string length for alloc
     char* command = (char*)malloc(commandLength); // Alloc Memory space
