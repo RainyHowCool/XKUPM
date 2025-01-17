@@ -23,7 +23,9 @@
  *  limitations under the License.
  */
 
-#include "pmio.h"
+#ifndef PMIO_H
+    #include "pmio.h"
+#endif
 using pmio::perr;
 using pmio::endl;
 
