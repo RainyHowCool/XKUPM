@@ -18,8 +18,10 @@ EOF
 
 cmake .
 make
+echo "Start build"
 rm -rf CMakeFiles/
 rm -rf cmake_install.cmake
 rm -rf CMakeCache.txt
 rm -rf Makefile
 chmod +777 xkupm
+echo "Build stop"
