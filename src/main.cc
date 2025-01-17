@@ -24,10 +24,13 @@
  */
 
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #include "pmio.h"
 #include "message.h"
 #include "modules/web/Downloader.h"
+#include "modules/archive/Extract.h"
 #include "utils.h"
 
 using pmio::put;
@@ -89,6 +92,19 @@ void installPackage(char* packageName){
     put << "\tDone" << endl;
     // 3. Prepare to install
     chdir(tempDirectoryName); // Change working dir to Temp Directory for Installation
+
+    mkdir("files", S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH); // Create directory for extracted files, Mode755
+
+    int downloadFileNameLength = strlen(tempDirectoryName) + 1 + strlen("binary.xpz") + 1;
+    char* downloadFileName = (char*) malloc(downloadFileNameLength);
+    sprintf(downloadFileName, "%s/binary.xpz", tempDirectoryName);
+
+    int extractPathLength = strlen(tempDirectoryName) + strlen("/files") + 1;
+    char* extractPath = (char*) malloc(extractPathLength);
+    sprintf(extractPath, "%s/files", tempDirectoryName);
+
+    extractArchive(toStr(downloadFileName), toStr(extractPath));
+    // 4. Install
 }
 
 int main(int argc, char* argv[]){ // Entry point
