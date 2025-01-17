@@ -1,9 +1,7 @@
 # XKUPM
--------
 **XKUPM** is means `XIAOKUAI Universal Package Manager`, but now it only supports `Linux Platform`.
 
 # Open-Source LICENSE
----------------------
 **XKUPM** use `Apache 2.0 LICENSE`.
 NOTICE:
 >   Copyright 2025 xiaokuai(@小块SIXTEEN)
@@ -21,33 +19,32 @@ NOTICE:
 >   limitations under the License.
 
 # Ready to build(IMPORTANT!)
-----------------------------
 If you want to build **XKUPM**, You have to make sure that `GCC(GNU Compiler Collection)/G++`,`GNU Make` and `CMake` is installed correctly.
 <br>
 ## Debian series
-1. Update `apt` Repository indexes
+1. Update **apt** Repository indexes
 <br>
-    `sudo apt update`
+    **sudo apt update**
 <br>
-3. Install `build-essential`
+3. Install **build-essential**
 <br>
-    `sudo apt install build-essential`
+    **sudo apt install build-essential**
 <br>
-4. Install `cmake`
+4. Install **cmake**
 <br>
-    `sudo apt install cmake`
+    **sudo apt install cmake**
 ## Arch series
 1. Update Local package database
 <br>
-    `sudo pacman -Sy`
+    **sudo pacman -Sy**
 <br>
-3. Install `base-devel`
+3. Install **base-devel**
 <br>
-    `sudo pacman -S base-devel`
+    **sudo pacman -S base-devel**
 <br>
-5. Install `cmake`
+5. Install **cmake**
 <br>
-    `sudo pacman -S cmake`
+    **sudo pacman -S cmake**
 
 # How to build
 --------------
@@ -61,8 +58,8 @@ If you want to build **XKUPM**, you can through `build.sh`(Recommend)
 ## CMake & GNU Make
 You not only can build it through `build.sh`, you also can build it through *CMake* and *Makefile*
 <br>
-`cmake
-<br>.`
+`cmake`
+<br>
 `make`
 # Run it
 --------
