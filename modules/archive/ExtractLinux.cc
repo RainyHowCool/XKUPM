@@ -29,11 +29,10 @@
 using pmio::perr;
 using pmio::endl;
 
-int extractArchiveLinux(xkstring fileName, xkstring extractPath)
-{
-    int commandLength = strlen("tar -xzf  -C ") + fileName.length() + extractPath.length(); // Get string length for alloc
+int extractArchiveLinux(xkstring fileName, xkstring extractPath){ //tar.xz
+    int commandLength = strlen("tar -xJf  -C ") + fileName.length() + extractPath.length(); // Get string length for alloc
     char* command = (char*)malloc(commandLength); // Alloc Memory space
-    sprintf(command, "tar -xzf %s -C %s", fileName, extractPath);
+    sprintf(command, "tar -xJf %s -C %s", fileName.cstr(), extractPath.cstr());
     //execute
     int errorLevel = system(command);
 
