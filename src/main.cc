@@ -110,9 +110,9 @@ void installPackage(char* packageName){
     int errorLevel = system("cd files && sudo ./install.sh"); // Execute install script with root
 
     if(errorLevel != 0){
-        perr << endl << "Installation failed!" << endl;
+        perr << "Installation failed!" << endl;
         system("cd files && sudo ./remove.sh"); // Uninstall program
-        pinfo << endl << "Remove finished!" << endl;
+        pinfo << "Remove finished!" << endl;
         chdir("/");
         rmdir(tempDirectoryName); // Remove temp directory
         exit(-1);
@@ -125,7 +125,7 @@ void installPackage(char* packageName){
     // 6. Clean
     chdir("/");
     rmdir(tempDirectoryName); // Remove temp directory
-    pinfo << endl << "Install finished!" << endl;
+    pinfo << "Install finished!" << endl;
 }
 
 void removePackage(char* packageName){
@@ -140,7 +140,7 @@ void removePackage(char* packageName){
     sprintf(removeCommand, "sudo %s", removeCommand);
 
     int errorLevel = system(removeCommand); // Execute Command to remove
-    put << endl << "Remove finished!" << endl;
+    put << "Remove finished!" << endl;
 }
 
 int main(int argc, char* argv[]){ // Entry point
