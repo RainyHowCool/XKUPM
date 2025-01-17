@@ -35,7 +35,8 @@ namespace msg{
     void getHelp(){ // Output Help Message(MID01)
         put << "Usage: xkupm [options] command [packages]" << endl << endl;
         put << "Command Options:" << endl;
-        put << "    install [source/binary] - Install package." << endl;
+        put << "    install - Install package." << endl;
+        put << "    remove - Remove package." << endl;
         put << "    update - Update Indexes & Packages." << endl;
         put << "    find   - Find packages in indexes" << endl;
     }

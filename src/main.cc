@@ -106,23 +106,61 @@ void installPackage(char* packageName){
 
     extractArchive(toStr(downloadFileName), toStr(extractPath));
     // 4. Install
+    chmod("./files/install.sh", 777); // Write + Read + Execute Premissions
+    int errorLevel = system("cd files && sudo ./install.sh"); // Execute install script with root
+
+    if(errorLevel != 0){
+        perr << endl << "Installation failed!" << endl;
+        system("cd files && sudo ./remove.sh"); // Uninstall program
+        pinfo << endl << "Remove finished!" << endl;
+        chdir("/");
+        rmdir(tempDirectoryName); // Remove temp directory
+        exit(-1);
+    }
+    // 5. Register Remove Information
+    int copyCommandLength = strlen("cp ./files/remove.sh ~/.xkupm/removes/.sh"); + strlen(packageName) + 1;
+    char* copyCommand = (char*) malloc(copyCommandLength);
+    sprintf(copyCommand, "cp ./files/remove.sh ~/.xkupm/removes/%s.sh", packageName);
+    system(copyCommand); // copy remove scripts to removes directory
+    // 6. Clean
+    chdir("/");
+    rmdir(tempDirectoryName); // Remove temp directory
+    pinfo << endl << "Install finished!" << endl;
+}
+
+void removePackage(char* packageName){
+    int removeScriptFullNameLength = strlen("~/.xkupm/removes/.sh") + strlen(packageName) + 1;
+    char* removeScriptFullName = (char*) malloc(removeScriptFullNameLength);
+    sprintf(removeScriptFullName, "~/.xkupm/removes/%s.sh", packageName);
+
+    chmod(expanduser(removeScriptFullName), 777); // Mode 777
+
+    int removeCommandLength = strlen("sudo ") + strlen(removeScriptFullName) + 1;
+    char* removeCommand = (char*) malloc(removeCommandLength);
+    sprintf(removeCommand, "sudo %s", removeCommand);
+
+    int errorLevel = system(removeCommand); // Execute Command to remove
+    put << endl << "Remove finished!" << endl;
 }
 
 int main(int argc, char* argv[]){ // Entry point
     VersionInfo versionInfo;
-    put << versionInfo.getAsciiLogo() << endl;
-    put << versionInfo.getVersionName() << endl;
+
     if(argc < 2){// No arguments
+        put << versionInfo.getAsciiLogo() << endl;
+        put << versionInfo.getVersionName() << endl;
         perr << "No input!" << endl;
         pinfo << "Try adding arguments 'help' to get help." << endl;
-    }else{
-        if(!strcmp(argv[1], "help")){
-            msg::getHelp(); // Output help message
-        }else if(!strcmp(argv[1], "install")){
-            installPackage(argv[2]); // Install Package
-        }else{ // Unknown Option
-            perr << "Unknown Option " << argv[1] << "!" << endl;
-            pinfo << "Try adding arguments 'help' to get help." << endl;
-        }
+    }else if(!strcmp(argv[1], "help")){
+        put << versionInfo.getAsciiLogo() << endl;
+        put << versionInfo.getVersionName() << endl;
+        msg::getHelp(); // Output help message
+    }else if(!strcmp(argv[1], "install")){
+        installPackage(argv[2]); // Install Package
+    }else if(!strcmp(argv[1], "remove")){
+        removePackage(argv[2]);
+    }else{ // Unknown Option
+        perr << "Unknown Option " << argv[1] << "!" << endl;
+        pinfo << "Try adding arguments 'help' to get help." << endl;
     }
 }
