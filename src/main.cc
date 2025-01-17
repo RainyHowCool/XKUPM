@@ -5,7 +5,7 @@
  *   /  \  | . \  | |_| | |  __/  | |  | |
  *  /_/\_\ |_|\_\  \___/  |_|     |_|  |_|
  *  
- *  XKUPM VERSION 1.00
+ *  XKUPM VERSION 1.00 BUILD 20250107
  *  Entry Point Function
  *  2025 @小块SIXTEEN
  *  Copyright 2025 xiaokuai(@小块SIXTEEN)
@@ -53,7 +53,7 @@ public:
         return _codeName;
     }
 private:
-    xkstring _versionName = "XKUPM VERSION 1.0.0";
+    xkstring _versionName = "XKUPM VERSION BUILD 20250107";
     const int _version = 1.0;
     xkstring _codeName = "Jelly Cake";
     xkstring _asciiLogo = "__  __  _  __  _   _   ____    __  __\n\\ \\/ / | |/ / | | | | |  _ \\  |  \\/  |\n \\  /  | ' /  | | | | | |_) | | |\\/| |\n /  \\  | . \\  | |_| | |  __/  | |  | |\n/_/\\_\\ |_|\\_\\  \\___/  |_|     |_|  |_|\n";
