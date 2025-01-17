@@ -48,7 +48,6 @@ First, Update Local package database
 `sudo pacman -S cmake`
 
 # How to build
---------------
 ## build.sh
 If you want to build **XKUPM**, you can through `build.sh`(Recommend) 
 <br>
@@ -63,12 +62,10 @@ You not only can build it through `build.sh`, you also can build it through *CMa
 <br>
 `make`
 # Run it
---------
 `chmod +777 .\xkupm`
 <br>
 `.\xkupm help`
 # Usage
--------
 Usage: xkupm [options] command [packages]
 <br>
 Command Options:
@@ -80,7 +77,6 @@ Command Options:
     find   - Find package in indexes
 <br>
 # Support us
-------------
 You can give feedback via `GitHub Issues` or send an email to **rainyhowcool@outlook.com**.
 <br>
 If you want to add a new feature, please submit a `Pull requests`.
