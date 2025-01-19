@@ -58,7 +58,7 @@ If you want to build **XKUPM**, you can through `build.sh`(Recommend)
 `.\build.sh`
 <br><br>
 ## CMake & GNU Make
-You can not only can build it through `build.sh`, but also can build it through *CMake* and *Makefile*
+You can not only build it through `build.sh`, but also through *CMake* and *Makefile*
 <br>
 `cmake .`
 <br>
