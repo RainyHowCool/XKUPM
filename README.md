@@ -18,10 +18,12 @@ NOTICE:
 >   See the License for the specific language governing permissions and
 >   limitations under the License.
 
-# Ready to build(IMPORTANT!)
+# Prepare to build(IMPORTANT!)
 If you want to build **XKUPM**, You have to make sure that `GCC(GNU Compiler Collection)/G++`,`GNU Make` and `CMake` is installed correctly.
 <br>
-## Debian series
+To install them, you can follow these steps:
+<br>
+### In Debian series
 First, Update **apt** Repository indexes
 <br>
 `apt update`
@@ -34,7 +36,7 @@ First, Update **apt** Repository indexes
 <br>
 `sudo apt install cmake`
 
-## Arch series
+## In Arch series
 First, Update Local package database
 <br>
 `sudo pacman -Sy`
@@ -56,7 +58,7 @@ If you want to build **XKUPM**, you can through `build.sh`(Recommend)
 `.\build.sh`
 <br><br>
 ## CMake & GNU Make
-You not only can build it through `build.sh`, you also can build it through *CMake* and *Makefile*
+You can not only build it through `build.sh`, but also through *CMake* and *Makefile*
 <br>
 `cmake .`
 <br>
